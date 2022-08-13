@@ -13,7 +13,7 @@
             </button>
         </form>
 
-        <form action="{{route('contacts.edit',$contact)}}" method="post">
+        <form action="{{route('contacts.edit',$contact)}}" method="get">
             @csrf
             <button type="submit">
                 Modifier le contact
