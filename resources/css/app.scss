@@ -40,6 +40,13 @@ $vert_tres_clair : #DAF7DC;
             margin: 5px;
             padding: 1px 5px;
             width: 96%;
+            
+            h4 {
+                span {
+                    font-size: 1.5rem;
+                    color: white;
+                }
+            }
         }
     }
 
@@ -62,12 +69,14 @@ $vert_tres_clair : #DAF7DC;
             align-self: flex-end;
 
             button {
+                cursor: pointer;
                 border: none;
                 background-color: $bleu_fonce;
                 color:white;
                 margin: 5px;
                 padding: 5px;
             }
+
         }
     }
 }

@@ -17,8 +17,8 @@ class ReservationsController extends Controller
     public function index()
     {
         $reservations = Reservations::all();
-        
-        return view('reservations.index', compact('reservations'));
+        $rooms = Rooms::all();
+        return view('reservations.index', compact('reservations','rooms'));
     }
 
     /**
@@ -28,7 +28,8 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        //
+        $rooms = Rooms::all();
+        return view('reservations.create', compact('rooms'));
     }
 
     /**
@@ -39,7 +40,52 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // on va transmettre à la page index de reservations toutes les infos des tables rooms et reservations
+        $reservations = Reservations::all();
+        $rooms = Rooms::all();
+        $count = 0; // variable de check pour le foreach
+        // on créé une nouvelle instance pour l'intégrer dans la bdd
+        $reservation = new Reservations;
+
+        $reservation -> contact_id = $request -> contact_id;
+        $reservation -> room_id = $request -> room_id;
+        $reservation -> begin_date = $request -> begin_date;
+        $reservation -> end_date = $request -> end_date;
+        $reservation -> created_at = date('Y-m-d H:i:s');
+        $reservation -> updated_at = date('Y-m-d H:i:s');
+
+
+        // on va chercher la room réservé et passer sa disponibilité à "faux"
+        $room_reserved = Rooms::find($reservation -> room_id);
+        $room_reserved -> is_active = 0;
+        $room_reserved -> save();
+
+        // on va aller check s'il y a dans la bdd une réservation déjà effectuée sur cette salle aux dates demandées
+        $all_already_reserved = Reservations::all() -> where('room_id', $reservation -> room_id);
+
+        // si la nouvelle réservation est après la fin d'une autre réservation ou que la fin de la nouvelle réservation est avant le début d'une autre, c'est OK.
+        foreach ($all_already_reserved as $key => $already_reserved) {
+            if ($reservation -> begin_date > $already_reserved -> end_date || $reservation -> end_date < $already_reserved -> begin_date) {
+
+                $count++;
+                
+            } else {
+
+                $reservation_failed = "réservation impossible, la date n'est pas disponible";
+
+                return view('reservations.create', compact('reservation_failed', 'reservations','rooms'));
+            }
+
+            if ($count === count($all_already_reserved)) {
+                $reservation -> save();
+            }
+        }
+        
+
+
+
+        
+        return view('reservations.index', compact('reservations','rooms'));
     }
 
     /**

@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'C40',
                 'max_persons' => 40,
                 'price' => 289,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -115,7 +115,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'B20',
                 'max_persons' => 20,
                 'price' => 249,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'D20',
                 'max_persons' => 20,
                 'price' => 199,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -145,7 +145,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'A10',
                 'max_persons' => 10,
                 'price' => 299,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'E10',
                 'max_persons' => 10,
                 'price' => 199,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
                 'ref_room' => 'A03',
                 'max_persons' => 3,
                 'price' => 119,
-                'is_active' => false,
+                'is_active' => true,
                 'created_at' => date('Y-m-d h:i:s',time()),
                 'updated_at' => date('Y-m-d h:i:s',time())
             ],
@@ -240,8 +240,8 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d h:i:s',time())
             ]
         ]);
-        \App\Models\Reservations::factory(10)->create();
-        \App\Models\OptionsReservations::factory(10)->create();
+        // \App\Models\Reservations::factory(10)->create();
+        // \App\Models\OptionsReservations::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
