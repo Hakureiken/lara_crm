@@ -26,10 +26,12 @@ class ReservationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $rooms = Rooms::all();
-        return view('reservations.create', compact('rooms'));
+        $room_choice = $request -> room_id;
+
+        return view('reservations.create', compact('rooms','room_choice'));
     }
 
     /**

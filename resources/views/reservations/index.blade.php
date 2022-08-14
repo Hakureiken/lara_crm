@@ -41,6 +41,8 @@
 
                         <form action="{{route('reservations.create')}}" method="get">
                             @csrf
+                            <input type="hidden" name="room_id" value="{{$room -> id}}" required>
+
                             <button>
                                 Réserver cette salle
                             </button>                
