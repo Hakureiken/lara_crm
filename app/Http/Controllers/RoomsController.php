@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rooms;
+use App\Models\Reservations;
 use Illuminate\Http\Request;
 
 class RoomsController extends Controller
@@ -58,7 +59,8 @@ class RoomsController extends Controller
      */
     public function show(Rooms $room)
     {
-        return view('rooms.show', compact('room'));
+        $rooms_reserved = Reservations::all() -> where('room_id', $room -> id);
+        return view('rooms.show', compact('room','rooms_reserved'));
 
     }
 
