@@ -17,7 +17,10 @@ use App\Http\Controllers\ReservationsController;
 |
 */
 
-// Route::get('/',[XXX::class, 'home']) -> name('home');
+Route::get('/',function ()
+{
+    return view('welcome');
+});
 
 // Route::get('/contacts', [ContactsController::class, 'index']) -> name('contacts.index');
 
