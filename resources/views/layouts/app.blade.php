@@ -18,6 +18,9 @@
             <li><a href="{{route('companies.index')}}">Liste des companies</a></li>
         </ul>
     </nav>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="test_form"></div>
     {{-- @include("layouts.partials.nav") --}}
     @yield("content")
 </body>

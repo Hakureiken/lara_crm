@@ -13,3 +13,8 @@ import './bootstrap';
  */
 
 import './components/Example';
+
+import './components/api';
+
+
+import './components/forms'
