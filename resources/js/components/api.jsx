@@ -44,7 +44,10 @@ const App = () => {
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(<React.StrictMode><App /></React.StrictMode>,rootElement);
+// ReactDOM.render(<React.StrictMode><App /></React.StrictMode>,rootElement);
+
+export default App;
+
 
 // autre manière de faire sans fetch
 
@@ -62,5 +65,3 @@ ReactDOM.render(<React.StrictMode><App /></React.StrictMode>,rootElement);
 //   setInterval(tick, 1000);
 
 // setInterval(App, 2000);
-
-export default App;

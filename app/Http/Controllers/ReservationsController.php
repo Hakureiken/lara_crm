@@ -63,9 +63,16 @@ class ReservationsController extends Controller
         $room_reserved -> save();
 
         // on va aller check s'il y a dans la bdd une réservation déjà effectuée sur cette salle aux dates demandées
+
         $all_already_reserved = Reservations::all() -> where('room_id', $reservation -> room_id);
 
         // si la nouvelle réservation est après la fin d'une autre réservation ou que la fin de la nouvelle réservation est avant le début d'une autre, c'est OK.
+
+        // if () {
+            
+        // } else {
+            
+        // }
         foreach ($all_already_reserved as $key => $already_reserved) {
             if ($reservation -> begin_date > $already_reserved -> end_date || $reservation -> end_date < $already_reserved -> begin_date) {
 
@@ -78,15 +85,9 @@ class ReservationsController extends Controller
                 return view('reservations.create', compact('reservation_failed', 'reservations','rooms'));
             }
 
-            if ($count === count($all_already_reserved)) {
-                $reservation -> save();
-            }
         }
-        
 
-
-
-        
+        $reservation -> save();
         return view('reservations.index', compact('reservations','rooms'));
     }
 
@@ -135,6 +136,6 @@ class ReservationsController extends Controller
      */
     public function destroy(Reservations $reservation)
     {
-        //
+        
     }
 }

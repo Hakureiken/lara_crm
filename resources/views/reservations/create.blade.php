@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <h1>Faire une réservation</h1>
+{{-- condition d'affichage, si la salle est déjà réservée dans la tranche demandée, on affichera ce message grâce au controller --}}
 @if (isset($reservation_failed))
     <span>{{$reservation_failed}}</span>
 @endif

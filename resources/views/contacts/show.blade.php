@@ -1,23 +1,26 @@
 @extends("layouts.app")
 
 @section("content")
-
-    <h1>{{$contact -> first_name}} - {{$contact -> last_name}}</h1>
-    <h2>ID : {{$contact -> id}}</h2>
+<div class="container_contacts_show">
+    <h1><span>{{$contact -> first_name}}<span> - <span>{{$contact -> last_name}}</span></h1>
+    <h2>Job : <span>{{$contact -> job}}</span>, au sein de l'entreprise : <span>{{$contact -> company -> name}}</span></h2>
+    <h2>Email : <span>{{$contact -> email}}</span> - Phone : <span>{{$contact -> phone}}</span></h2>
+    
     <div class="edit_delete">
         <form action="{{route('contacts.destroy',$contact)}}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit">
-                Supprimer le contact
+                Supprimer
             </button>
         </form>
 
         <form action="{{route('contacts.edit',$contact)}}" method="get">
             @csrf
             <button type="submit">
-                Modifier le contact
+                Modifier
             </button>
         </form>
     </div>
+</div>
 @endsection

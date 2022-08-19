@@ -11,7 +11,7 @@ function Test_form() {
     );
 }
 
-ReactDOM.render(<Test_form />, document.getElementById('test_form'))
+// ReactDOM.render(<Test_form />, document.getElementById('test_form'))
 
 // une structure possible à tester
 const element = {

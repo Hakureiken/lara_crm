@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section("content")
-<div class="personal_info">
-    <h1>Modifier le contact {{$contact -> first_name}} - {{$contact -> last_name}}</h1>
-    <h2>Job : {{$contact -> job}}</h2>
-    <h2>Email  : {{$contact -> email}}</h2>
-    <h2>Phone : {{$contact -> phone}}</h2>
-    <h2>Companie : {{$contact -> company -> name}}</h2>
-</div>
+<div class="container_contact_edit">
+    <h1>Page pour modifier le contact <span>{{$contact -> first_name}}</span> - <span>{{$contact -> last_name}}</span></h1>
+    <div class="personal_info">
+        <h2>Job : {{$contact -> job}}</h2>
+        <h2>Email  : {{$contact -> email}}</h2>
+        <h2>Phone : {{$contact -> phone}}</h2>
+        <h2>Companie : {{$contact -> company -> name}}</h2>
+    </div>
 
     <form action="{{route('contacts.update',$contact)}}" method="post">
         @csrf
@@ -24,4 +25,5 @@
             Modifier le contact
         </button>
     </form>
+</div>
 @endsection
