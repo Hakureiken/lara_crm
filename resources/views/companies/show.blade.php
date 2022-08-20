@@ -1,6 +1,8 @@
 @extends("layouts.app")
 
 @section("content")
+<div class="container_companies_show">
+
     <h1>{{$company -> name}} - {{$company -> adress}}</h1>
     <h2>ID : {{$company -> id}}</h2>
     <h3>SIRET : {{$company -> siret}}</h3>
@@ -14,4 +16,5 @@
             Supprimer le contact
         </button>
     </form>
+</div>
 @endsection
